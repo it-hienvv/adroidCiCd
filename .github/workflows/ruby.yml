@@ -16,7 +16,8 @@ on:
 jobs:
   build-android:
     runs-on: ubuntu-latest
-    env: working-directory: ./android
+    env: 
+      working-directory: ./android
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
