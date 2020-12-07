@@ -61,7 +61,7 @@ platform :android do
     # puts “APK path: #{APK_LOCATION}”
     apk_name = "#{ENV['VERSION']}_b#{ENV['VERSION_CODE']}.apk"
     sh("cp ../app/build/outputs/apk/release/app-release.apk ../build-notes/apk/#{apk_name}")
-    sh("open ../build-notes/apk")
+    # sh("open ../build-notes/apk")
   end
 
   #Distribute firebase
