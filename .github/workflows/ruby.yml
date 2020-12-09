@@ -46,5 +46,6 @@ jobs:
     - name: Install dependencies
       run: bundle install
       working-directory: ${{env.working-directory}}
-    - name: bundle exec fastlane run_all
+    - name: Run Fast lane 
+      run: bundle exec fastlane run_all
       working-directory: ${{env.working-directory}}
