@@ -33,7 +33,7 @@ jobs:
       working-directory: ${{env.working-directory}}
   build-ios:
     name: Build-Ios
-    run-on: macos-latest
+    runs-on: macos-latest
     env: 
       working-directory: ./ios
     steps:
