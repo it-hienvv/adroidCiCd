@@ -15,7 +15,7 @@ on:
 
 jobs:
   build-android:
-    - name: Build Android
+    name: Build-Android
     runs-on: ubuntu-latest
     env: 
       working-directory: ./android
@@ -33,7 +33,7 @@ jobs:
       working-directory: ${{env.working-directory}}
 jobs: 
   build-ios:
-    - name: Build Ios
+    name: Build-Ios
     run-on: macos-latest
     env: 
       working-directory: ./ios
