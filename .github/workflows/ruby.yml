@@ -10,11 +10,12 @@ name: Ruby
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 
 jobs:
   build-android:
+    - name: Build Android
     runs-on: ubuntu-latest
     env: 
       working-directory: ./android
@@ -29,4 +30,21 @@ jobs:
       working-directory: ${{env.working-directory}}
     - name: Run Fast lane
       run: bundle exec fastlane run_all KEY_STORE_PASSWORD:${{ secrets.KEY_STORE_PASSWORD }}  ALIAS_STORE_PASSWORD:${{ secrets.ALIAS_STORE_PASSWORD }} FIREBASE_APP_DISTRIBUTION_KEY:${{ secrets.FIREBASE_APP_DISTRIBUTION_KEY }} FIREBASE_APP_DISTRIBUTION_CLI_TOKEN:${{ secrets.FIREBASE_APP_DISTRIBUTION_CLI_TOKEN }}
+      working-directory: ${{env.working-directory}}
+jobs: 
+  build-ios:
+    - name: Build Ios
+    run-on: macos-latest
+    env: 
+      working-directory: ./ios
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
+      with:
+        ruby-version: 2.6
+    - name: Install dependencies
+      run: bundle install
+      working-directory: ${{env.working-directory}}
+    - name: bundle exec fastlane run_all
       working-directory: ${{env.working-directory}}
